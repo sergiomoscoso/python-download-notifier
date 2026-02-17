@@ -1,0 +1,27 @@
+# Security requirements for automated security scanning
+# Install with: pip install -r requirements-security.txt
+
+# Core security tools
+bandit==1.9.3              # Searches for common security issues in Python code
+pip-audit==2.10.0          # Audits Python packages for known vulnerabilities
+safety==3.7.0              # Dependency vulnerability scanner
+
+# Pre-commit and validation
+pre-commit==3.3.2          # Git hooks framework for running code quality checks
+detect-secrets==1.4.0      # Detects high entropy strings that look like secrets
+
+# Code quality & formatting
+black==23.3.0              # Python code formatter
+flake8==6.0.0              # Style guide enforcement
+isort==5.12.0              # Python import sorting utility
+pylint==2.17.1             # Code analysis for Python
+
+# Environment management
+python-dotenv==1.0.0       # Load environment variables from .env files
+
+# Type checking
+mypy==1.0.1                # Static type checker for Python
+
+# Testing with security assertions
+pytest==9.0.2              # Testing framework (already installed)
+pytest-cov==4.1.0          # Code coverage for pytest (already installed)
