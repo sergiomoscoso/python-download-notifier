@@ -31,7 +31,7 @@ RequestExecutionLevel admin
 ;-----------------------
 Section "Instalar Notificador"
     SetOutPath "$INSTDIR"
-    
+
     ; Copiar archivos
     File "dist\NotificadorDeDescargas.exe"
     File "config.json"
@@ -64,14 +64,14 @@ Section "Desinstalar"
     Delete "$INSTDIR\config.json"
     Delete "$INSTDIR\icon.ico"
     Delete "$DESKTOP\Notificador de Descargas.lnk"
-    
+
     ; Eliminar menú de inicio
     Delete "$SMPROGRAMS\Notificador de Descargas\*.*"
     RMDir "$SMPROGRAMS\Notificador de Descargas"
-    
+
     ; Eliminar carpeta de instalación
     RMDir "$INSTDIR"
-    
+
     ; Eliminar del registro
     DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NotificadorDeDescargas"
 SectionEnd

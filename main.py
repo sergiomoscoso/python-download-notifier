@@ -1,14 +1,25 @@
 # main.py - Notificador de Descargas (version corregida)
-import sys
 import json
 import os
-from PyQt6.QtWidgets import (
-    QApplication, QMainWindow, QPushButton, QVBoxLayout,
-    QWidget, QLabel, QListWidget, QHBoxLayout,
-    QFileDialog, QMessageBox, QGroupBox, QSystemTrayIcon, QMenu
-)
-from PyQt6.QtGui import QAction, QIcon
+import sys
+
 from PyQt6.QtCore import QThread
+from PyQt6.QtGui import QAction, QIcon
+from PyQt6.QtWidgets import (
+    QApplication,
+    QFileDialog,
+    QGroupBox,
+    QHBoxLayout,
+    QLabel,
+    QListWidget,
+    QMainWindow,
+    QMenu,
+    QMessageBox,
+    QPushButton,
+    QSystemTrayIcon,
+    QVBoxLayout,
+    QWidget,
+)
 
 CONFIG_FILE = "config.json"
 

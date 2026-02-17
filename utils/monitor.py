@@ -1,11 +1,12 @@
 # utils/monitor.py - version corregida
-import time
 import os
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
+import time
+
 from plyer import notification
 from PyQt6.QtCore import QObject, pyqtSignal
 from PyQt6.QtWidgets import QApplication
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 TEMP_EXT = [".tmp", ".crdownload", ".part", ".download", ".partial", ".!bt", ".temp"]
 

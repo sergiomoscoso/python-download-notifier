@@ -1,5 +1,6 @@
-from plyer import notification
 import time
+
+from plyer import notification
 
 print("🔔 Enviando notificación en 3 segundos...")
 time.sleep(3)

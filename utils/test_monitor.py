@@ -1,10 +1,11 @@
 """Tests para el módulo monitor.py"""
 import os
 import tempfile
-import pytest
 from pathlib import Path
 from unittest.mock import Mock, patch
-from monitor import MonitorHandler, TEMP_EXT
+
+import pytest
+from monitor import TEMP_EXT, MonitorHandler
 
 
 class TestMonitorHandler:
