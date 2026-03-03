@@ -4,10 +4,11 @@ Security Framework Verification Script
 Validates that all security components are properly configured
 """
 
-import os
 import json
+import os
 import sys
 from pathlib import Path
+
 
 def check_file_exists(filepath, description):
     """Check if a file exists and report"""
@@ -23,7 +24,7 @@ def check_file_content(filepath, search_text, description):
     if not path.exists():
         print(f"❌ {description}: File not found - {filepath}")
         return False
-    
+
     try:
         content = path.read_text(encoding='utf-8', errors='ignore')
         found = search_text.lower() in content.lower()
@@ -40,7 +41,7 @@ def verify_json_valid(filepath, description):
     if not path.exists():
         print(f"❌ {description}: File not found")
         return False
-    
+
     try:
         with open(path, 'r', encoding='utf-8') as f:
             json.load(f)
@@ -55,9 +56,9 @@ def main():
     print("SECURITY FRAMEWORK VERIFICATION")
     print("=" * 70)
     print()
-    
+
     results = []
-    
+
     # 1. Check configuration files
     print("📋 CONFIGURATION FILES:")
     print("-" * 70)
@@ -67,7 +68,7 @@ def main():
     results.append(check_file_exists('config.py', 'Secure config module'))
     results.append(check_file_exists('.secrets.baseline', 'Detect-secrets baseline'))
     print()
-    
+
     # 2. Check requirements files
     print("📦 DEPENDENCIES:")
     print("-" * 70)
@@ -88,7 +89,7 @@ def main():
         'Detect-secrets tool'
     ))
     print()
-    
+
     # 3. Check test files
     print("✅ TESTS:")
     print("-" * 70)
@@ -109,7 +110,7 @@ def main():
         'Git protection tests'
     ))
     print()
-    
+
     # 4. Check documentation
     print("📚 DOCUMENTATION:")
     print("-" * 70)
@@ -127,7 +128,7 @@ def main():
     results.append(check_file_exists('SECURITY_VERIFICATION.md', 'Verification checklist'))
     results.append(check_file_exists('SECURITY_SETUP_COMPLETE.md', 'Setup summary'))
     print()
-    
+
     # 5. Check JSON validity
     print("🔍 FILE VALIDATION:")
     print("-" * 70)
@@ -136,7 +137,7 @@ def main():
     results.append(check_file_content('.gitignore', '*.key', 'Key file protection'))
     results.append(check_file_content('.gitignore', '*.pem', 'Certificate protection'))
     print()
-    
+
     # 6. Check git
     print("🔒 GIT CONFIGURATION:")
     print("-" * 70)
@@ -152,16 +153,16 @@ def main():
             print(f"⚠️ Pre-commit hook not found (may be installing)")
             results.append(False)
     print()
-    
+
     # 7. Summary
     print("=" * 70)
     passed = sum(results)
     total = len(results)
     percentage = (passed / total * 100) if total > 0 else 0
-    
+
     print(f"SUMMARY: {passed}/{total} checks passed ({percentage:.1f}%)")
     print()
-    
+
     if percentage >= 90:
         print("✅ SECURITY FRAMEWORK: OPERATIONAL")
         print()
